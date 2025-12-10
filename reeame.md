@@ -21,55 +21,23 @@ vainilla js
 - iniciar el proyecto con node js. "npm init"
 - instalar los paquetes requeridos :"npm install nodemon mysql2 cors env express".
 - configuracion el control de version del codigo :
-- iniciar el seguimiento del repositorio git init add ,
+- iniciar el seguimiento del repositorio git init add
+- conectamso el repositorio de la nube al local : git remote add origin https://github.com/karrito1/Interpolice-3064749.git
+- local git commit . m "inicio del primer"
+- remota :git push -u origin main
+- revison del pack.json verficar las dependencias
+- modificacion el pack para su ejecucion
+- "start": "node index.js",
+- "dev":"nodemon index.js",
 
-# Proyecto Interpolice: Sistema de Gestión de Información Policial
+##### Codificacion del proyecto
 
-![Banner del proyecto - Puedes reemplazar esto con una imagen relevante](https://via.placeholder.com/800x200?text=Interpolice+System)
+- crear el archivo principal :index.js
+  -configurar los plugis basicos :nodemons,corss hacer la primeraa prueba
+  npm run dev (modo desarrollador npm start (modo produccion))
 
-## Descripción del Proyecto
+#### creacion del modulo ala base de datos
 
-**Interpolice** es un sistema de gestión de información diseñado para optimizar los procesos internos y el manejo de datos relevantes en un entorno policial. Este proyecto se desarrolla utilizando una arquitectura moderna basada en Node.js para el backend (API REST) y una interfaz de usuario dinámica con JavaScript Vanilla y Bootstrap.
+importamos la libreria
 
-## Tecnologías Utilizadas
-
-Este proyecto se divide en dos componentes principales: el Backend (API) y el Frontend (UI).
-
-### Backend (API REST)
-
-| Herramienta         | Función                                                                    |
-| :------------------ | :------------------------------------------------------------------------- |
-| **Node.js**         | Entorno de ejecución de JavaScript.                                        |
-| **Express**         | Framework para la creación de APIs REST robustas y escalables.             |
-| **MySQL / MariaDB** | Gestor de Base de Datos relacional para persistencia de datos.             |
-| **mysql2**          | Cliente para interactuar con la base de datos.                             |
-| **dotenv**          | Gestión de variables de entorno para configuraciones seguras.              |
-| **CORS**            | Middleware para habilitar solicitudes de origen cruzado.                   |
-| **Nodemon**         | Utilidad para reiniciar automáticamente el servidor durante el desarrollo. |
-
-### Frontend (UI)
-
-| Herramienta    | Función                                                                             |
-| :------------- | :---------------------------------------------------------------------------------- |
-| **Vanilla JS** | Lógica y manipulación del DOM sin frameworks pesados.                               |
-| **Bootstrap**  | Framework CSS para un diseño responsivo y rápido.                                   |
-| **Vite**       | Herramienta de construcción (Bundler) para optimizar el desarrollo y el despliegue. |
-
-## Instalación y Puesta en Marcha
-
-Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local.
-
-### 1. Requisitos Previos
-
-Asegúrate de tener instalado lo siguiente:
-
-- **Node.js** (v16.x o superior recomendado)
-- **Git**
-- **MySQL o MariaDB** (Servidor de Base de Datos)
-
-### 2. Clonar el Repositorio
-
-```bash
-git clone [URL_DE_TU_REPOSITORIO]
-cd interpolice
-```
+### codificacion del modulo
