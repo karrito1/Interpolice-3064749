@@ -5,11 +5,10 @@
 import express from "express";
 import { conx } from "./baseDatos.js";
 //listar todos los ciudadanos
-export const ciudadano = express.Router();
-
-ciudadano.get("/ciudadano/listartodos", (req, res) => {
+export const usuario = express.Router();
+usuario.get("/usuario/listartodos", (req, res) => {
   // hacer la consulta  en la base de datos
-  let sql = "SELECT * FROM  ciudadano ORDER BY apellido";
+  let sql = "SELECT * FROM  usuario ORDER BY apellidos";
   //ejecutar la consulta de l base de datos
   conx.query(sql, (err, results, fields) => {
     res.send(results);
@@ -17,10 +16,10 @@ ciudadano.get("/ciudadano/listartodos", (req, res) => {
   // devolver la dta en formato json
 });
 
-ciudadano.get("/ciudadano/listarid/:id", (req, res) => {
+usuario.get("/usuario/listarid/:id", (req, res) => {
   let id = req.params.id;
   // hacer la consulta  en la base de datos
-  let sql = "SELECT * FROM  ciudadano  where codigo=?";
+  let sql = "SELECT * FROM  usuario  where id=?";
   //ejecutar la consulta de l base de datos
   conx.query(sql, [id], (err, results, fields) => {
     res.status(200).send({ results });
@@ -30,50 +29,44 @@ ciudadano.get("/ciudadano/listarid/:id", (req, res) => {
 // modulo para la manipulacion del ciudadano
 
 // borrado real
-ciudadano.delete("/ciudadano/borrarid/:id", (req, res) => {
+usuario.delete("/usuario/borrarid/:id", (req, res) => {
   let id = req.params.id;
   // hacer la consulta  en la base de datos
-  let sql = "DELETE  FROM  ciudadano  where codigo=?";
+  let sql = "DELETE  FROM  usuario  where id=?";
   //ejecutar la consulta de l base de datos
   conx.query(sql, [id], (err, results, fields) => {
     res.status(200).send({ results });
   });
 });
-ciudadano.post("/ciudadano/crear", (req, res) => {
+usuario.post("/usuario/crear", (req, res) => {
   // recibmos los parammetros enviqdos en una consulta-payload en obejtco jjavascript
   let datosFormulario = {
     nombre: req.body.nombre,
-    apellido: req.body.apellido,
-    apodo: req.body.apodo,
-    fechaNaciemiento: req.body.fechaNaciemiento,
-    planetaOrigen: req.body.planetaOrigen,
-    planetaResidencia: req.body.planetaResidencia,
-    foto: req.body.foto,
-    codigoQR: req.body.codigoQR,
-    estado: req.body.estado,
+    apellidos: req.body.apellidos,
+    Email: req.body.Email,
+    password: req.body.password,
+    avatar: req.body.avatar,
+    rol: req.body.rol,
   };
   // hacer la consulta  en la base de datos
-  let sql = "insert into ciudadano set ? ";
+  let sql = "insert into usuario set ? ";
   //ejecutar la consulta de l base de datos
   conx.query(sql, [datosFormulario], (err, results, fields) => {
     res.status(200).send({ results });
   });
 });
-ciudadano.put("/ciudadano/editar/:id", (req, res) => {
+usuario.put("/usuario/editar/:id", (req, res) => {
   let id = req.params.id;
   let datosFormulario = {
     nombre: req.body.nombre,
-    apellido: req.body.apellido,
-    apodo: req.body.apodo,
-    fechaNaciemiento: req.body.fechaNaciemiento,
-    planetaOrigen: req.body.planetaOrigen,
-    planetaResidencia: req.body.planetaResidencia,
-    foto: req.body.foto,
-    codigoQR: req.body.codigoQR,
-    estado: req.body.estado,
+    apellidos: req.body.apellidos,
+    Email: req.body.Email,
+    password: req.body.password,
+    avatar: req.body.avatar,
+    rol: req.body.rol,
   };
   // hacer la consulta  en la base de datos
-  let sql = "update ciudadano set ?   where codigo= ? ";
+  let sql = "update usuario set ?   where id= ? ";
   //ejecutar la consulta de l base de datos
   conx.query(sql, [datosFormulario, id], (err, results, fields) => {
     res.status(200).send({ results });
